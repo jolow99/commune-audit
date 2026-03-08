@@ -1,13 +1,5 @@
 # Site Spec
 
-## Navbar
-- Fixed top navigation bar
-- Dark semi-transparent background with blur backdrop
-- Logo on left: "Collective" in white bold text
-- Navigation links on right: "About", "How it Works", "Join"
-- Links in indigo-200, hover turns white
-- Hamburger menu on mobile
-
 ## Hero Section
 - Full-screen centered layout
 - Dark gradient background (slate-900 to indigo-950)
