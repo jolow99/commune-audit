@@ -1,13 +1,5 @@
 # Site Spec
 
-## Navbar
-- Fixed to top of page
-- Semi-transparent dark background with blur backdrop
-- Contains logo on left: "OpenPage" in white bold text
-- Navigation links on right: "About", "How it works", "Join"
-- Links are white text, hover to indigo-300
-- "Join" link styled as indigo-500 pill button
-
 ## Hero Section
 - Full-screen centered layout
 - Dark gradient background (slate-900 to indigo-950)
