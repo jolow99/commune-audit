@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 
 const Hero: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-red-950">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-red-900/20 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-red-800/10 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.4, 0.2],
@@ -30,93 +30,63 @@ const Hero: React.FC = () => {
             ease: 'easeInOut',
           }}
         />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-950/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Headline */}
         <motion.h1
-          className="text-white text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-6"
+          className="text-white font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <motion.span
-            className="block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            Build together.
-          </motion.span>
-          <motion.span
-            className="block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
+          Build together.
+          <br />
+          <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Govern together.
-          </motion.span>
+          </span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
-          className="text-red-300 text-xl md:text-2xl mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-indigo-300 text-lg sm:text-xl lg:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
           A living platform owned by the movement. Every line of this page was
           voted in by the community.
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.div
+        {/* Call to Action */}
+        <motion.a
+          href="#join"
+          className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors duration-200 shadow-lg shadow-indigo-500/30"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <motion.a
-            href="#join"
-            className="inline-block bg-red-500 text-white font-semibold px-8 py-4 rounded-lg text-lg shadow-lg shadow-red-500/25"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 20px 40px rgba(239, 68, 68, 0.3)',
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-          >
-            Join the experiment
-          </motion.a>
-        </motion.div>
+          Join the experiment
+        </motion.a>
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
+          transition={{ delay: 1, duration: 0.5 }}
         >
           <motion.div
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+            className="w-6 h-10 border-2 border-indigo-400/50 rounded-full flex justify-center pt-2"
             animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           >
             <motion.div
-              className="w-1.5 h-3 bg-white/50 rounded-full mt-2"
-              animate={{ opacity: [0.5, 1, 0.5], y: [0, 4, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-1.5 h-1.5 bg-indigo-400 rounded-full"
+              animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
             />
           </motion.div>
         </motion.div>
