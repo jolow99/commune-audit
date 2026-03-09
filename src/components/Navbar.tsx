@@ -25,8 +25,10 @@ const Navbar: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/90 shadow-lg' : 'bg-slate-900/70'
-      } backdrop-blur-md`}
+        scrolled
+          ? 'bg-slate-900/90 backdrop-blur-md shadow-lg'
+          : 'bg-slate-900/60 backdrop-blur-sm'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -35,21 +37,21 @@ const Navbar: React.FC = () => {
             href="#"
             className="text-white font-bold text-2xl tracking-tight"
             whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 400 }}
+            whileTap={{ scale: 0.98 }}
           >
             Collective
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-indigo-200 hover:text-white transition-colors duration-200 font-medium"
+                className="text-pink-300 hover:text-white transition-colors duration-300 font-medium"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index + 0.3 }}
+                transition={{ delay: index * 0.1 + 0.3 }}
                 whileHover={{ y: -2 }}
               >
                 {link.name}
@@ -65,18 +67,26 @@ const Navbar: React.FC = () => {
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <motion.span
-                className="w-full h-0.5 bg-white rounded-full origin-center"
-                animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 9 : 0 }}
+                className="w-full h-0.5 bg-white block origin-center"
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  y: isOpen ? 9 : 0,
+                }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-white rounded-full"
-                animate={{ opacity: isOpen ? 0 : 1 }}
-                transition={{ duration: 0.2 }}
+                className="w-full h-0.5 bg-white block"
+                animate={{
+                  opacity: isOpen ? 0 : 1,
+                }}
+                transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-full h-0.5 bg-white rounded-full origin-center"
-                animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -9 : 0 }}
+                className="w-full h-0.5 bg-white block origin-center"
+                animate={{
+                  rotate: isOpen ? -45 : 0,
+                  y: isOpen ? -9 : 0,
+                }}
                 transition={{ duration: 0.3 }}
               />
             </div>
@@ -93,15 +103,15 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="pt-4 pb-2 space-y-3">
+              <div className="pt-4 pb-2 flex flex-col gap-4">
                 {navLinks.map((link, index) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    className="block text-indigo-200 hover:text-white transition-colors duration-200 font-medium py-2"
+                    className="text-pink-300 hover:text-white transition-colors duration-300 font-medium py-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * index }}
+                    transition={{ delay: index * 0.1 }}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
