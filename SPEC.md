@@ -2,7 +2,7 @@
 
 ## Hero Section
 - Full-screen centered layout
-- Dark gradient background (slate-900 to indigo-950)
+- Dark gradient background (slate-900 to red-950)
 - White text
 
 ## Headline
@@ -11,9 +11,9 @@
 
 ## Subheading
 - "A living platform owned by the movement. Every line of this page was voted in by the community."
-- Indigo-300 colored, xl size
+- Red-300 colored, xl size
 
 ## Call to Action
 - "Join the experiment" button
-- Indigo-500 background, rounded, hover scale animation
+- Red-500 background, rounded, hover scale animation
 - Links to #join
