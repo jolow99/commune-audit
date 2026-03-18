@@ -1,28 +1,20 @@
 import { motion } from 'framer-motion'
 
+const CATEGORIES = ['Food', 'Housing', 'Transport', 'Skills', 'Emotional Support']
+
 export default function App() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-950 text-white flex flex-col items-center justify-center px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-2xl"
-      >
-        <h1 className="text-6xl font-bold tracking-tight mb-6">
-          Build together.<br />Govern together.
-        </h1>
-        <p className="text-xl text-indigo-300 mb-10">
-          A living platform owned by the movement. Every line of this page was voted in by the community.
-        </p>
-        <motion.a
-          href="#join"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-2xl text-lg transition-colors"
-        >
-          Join the experiment
-        </motion.a>
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-950 text-white px-6 py-12">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8">Mutual Aid Board</h1>
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <button className="bg-indigo-600 hover:bg-indigo-500 rounded-xl p-4 text-lg font-medium">I Need Help</button>
+          <button className="bg-emerald-600 hover:bg-emerald-500 rounded-xl p-4 text-lg font-medium">I Can Help</button>
+        </div>
+        <div className="flex gap-2 mb-6">
+          {CATEGORIES.map(c => <span key={c} className="px-3 py-1 bg-slate-800 rounded-full text-sm">{c}</span>)}
+        </div>
+        <p className="text-slate-400">No posts yet. Be the first to share a request or offer.</p>
       </motion.div>
     </main>
   )
